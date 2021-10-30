@@ -92,7 +92,7 @@ select {
 }
 
 /* The styles for the parallax */
-.hero {
+/* .hero {
   position: relative;
   height: 500px;
   padding: 10px;
@@ -102,7 +102,7 @@ select {
   background-position: bottom center;
   background-size: contain;
   background-size: cover;
-}
+} */
 
 .hero h1 {
   margin-top: 200px;
