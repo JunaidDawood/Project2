@@ -37,7 +37,7 @@
 
 
 
- var queryUrl =  "https://data.cityofchicago.org/resource/ijzp-q8t2.geojson"
+ //var queryUrl =  "https://data.cityofchicago.org/resource/ijzp-q8t2.geojson"
  
  var queryUrl = geojson
  // console.log(queryUrl)

@@ -3,12 +3,19 @@
   font-family: Ubuntu, sans-serif;
 }
 */
+
 html,
 body {
   height: 100%;
   padding: 0;
   margin: 0;
 }
+
+#map {
+  width: 60%;
+  height: 60%;
+}
+
 
 /* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
 .wrapper {
@@ -69,7 +76,7 @@ select {
   display: block;
   width: 100%;
   padding: 8px;
-  color: #8e979f;
+  color: #000000;
   outline: none;
 }
 
