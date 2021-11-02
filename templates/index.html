@@ -1,197 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chicago Crime Data</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin="">
-
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-
-</head>
-
-<body>
-
-
-    <div class="hero text-center">
-        <h1>Chicago Crime 2020</h1>
-        <p>Reported Crime Incidents in the City of Chicago</p>
-    </div>
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
-        <h3 style="font-weight: 600;">Learn about the data</h3>
-        <p class="mb-0 font-weight-normal d-none d-sm-block">
-            As residents of Chicago, we found it fitting to create an interactive dashboard to
-            visualize Crime Data in our city. We wanted to provide a place for anybody
-            to be able to click around and easily get information if concerned about crime
-            rates in Chicago.
-        </p>
-    </div>
-
-   
-    <div class="col-md-2"></div>
-    <div class="col-md-2">
-        <aside class="filters">
-            <div class="panel panel-default">
-                <div class="panel-heading">Select Option</div>
-                <div class="panel-body">
-                    <form id="form1" action="/selectorpage" method="POST" enctype="multipart/form-data">
-                        <select id="mySelect" name="selector_listener">
-                            <option value="ROBBERY">ROBBERY</option>
-                            <option value="THEFT">THEFT</option>
-                            <option value="HOMICIDE" selected>HOMICIDE</option>
-                        </select>
-                        <input type="submit" value="Submit">
-        
-                    </form>
-                    
-                </div>
-            </div>
-            
-
-
-        </aside>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Chicago Crime Data</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="../static/css/style.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- Our CSS -->
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="">
+    
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+                crossorigin="" />
+       
+    </head>
+    
+
+
+    <body class="sb-nav-fixed">
+
         
-            
-        </div>
-    </div>
-
-
-    <div id="map" style="margin-left:500px"></div>
-
-    <div class="container">
-
-
-        <div class="row">
-
-
-            <div class="col-md-2">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">Chicago Crime Data</a>        
+        </nav>
+       
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Map Filters</div>
+                            <form style= "margin-left:15px; margin-right:15px" id="form1" action="/selectorpage" method="POST" enctype="multipart/form-data">
+                                <select class="sb-nav-link-icon" id="mySelect" name="selector_listener">
+                                    <option value ="ROBBERY">ROBBERY</option>
+                                    <option value ="THEFT">THEFT</option>
+                                    <option value ="HOMICIDE" selected>HOMICIDE</option>
+                                </select>
+                                <input style="margin-top:5px" type="submit" value="Submit">
+                            </form>
+                            <div class="sb-sidenav-menu-heading">Plot 1 Filter</div>
+                            <div style="margin-left:10px">Select Crime Types</div>
+                                <select style="margin-left:15px; margin-right:15px" id="selDataset1" onchange="optionChanged1(this.value)"></select>
+                            <div class="sb-sidenav-menu-heading">Plot 2 Filter</div>
+                                <div style="margin-left:10px">Select Month</div>
+                                <select style="margin-left:15px; margin-right:15px" id="selDataset2" onchange="optionChanged2(this.value)"></select>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Data Visualization Boot Camp 2021</div>
+                        Project 2
+                    </div>
+                </nav>
             </div>
-
-
-        </div>
-
-
-        <!--
+                 
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Chicago Crime 2020</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Reported Crime Incidents in the City of Chicago in 2020</li>
+                        </ol>
+                        <div class="row">
+                            <p class="mb-0 font-weight-normal d-none d-sm-block">
+                                As residents of Chicago, we found it fitting to create an interactive dashboard to
+                                visualize Crime Data in our city. We wanted to provide a place for anybody
+                                to be able to click around and easily get information if concerned about crime
+                                rates in Chicago.
+                                <br> <br>
+                            </p>
+                            <h4 style="font-weight: 600;">Learn about the data</h4>
+                        
+                            <h5>Map</h5>
+                            <!--<p>Let Arnaz add something about the map here</p> -->
+                        </div>
+                
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Mapping Crimes of Chicago
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="map" style="width:100%; height:600px;" ></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5>Crime Data Plots</h5>
+                            <p> Use "Plot 1 Filter" to learn the number of reports of the type of the crime you are interested in.</p>
+                            <div class="col-xl-12">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar me-1"></i>
+                                        Plot 1: Number of Crimes per Month
+                                    </div>
+                                    <div class="card-body"><div id="plot1" width="100%" height="20"></div></div>
+                                    <!--<div id="plot1"></div>-->
+                                </div>
+                            </div>
+                            <p> Use "Plot 2 Filter" to learn about</p>
+                            <div class="col-xl-12">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar me-1"></i>
+                                        Plot 2: Number of Crimes vs. Crime Types
+                                    </div>
+                                    <div class="card-body"><div id="plot2" width="100%" height="40"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                                <table id="ufo-table" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-head">Year</th>
+                                            <th class="table-head">Month</th>
+                                            <th class="table-head">Crime Type</th>
+                                            <th class="table-head">Crime Description</th>
+                                            <th class="table-head">Reported Crime Count</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
 Copy to main index to html 
   ########################################################-->
         <!-- Leaflet JS -->
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin=""></script>
-        <!-- D3 JavaScript -->
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <!-- API key -->
-        <script type="text/javascript" src="../static/js/config.js"></script>
-        <!-- Our JavaScript -->
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <!-- D3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- API key -->
+    <script type="text/javascript" src="../static/js/config.js"></script>
+    <!-- Our JavaScript -->
 
-        <script type="text/javascript" src="app.py"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script>
-            var geojson = {{ geojson| safe}}
-  // console.log(geojson)
-        </script>
-        <script type="text/javascript" src="../static/js/maplogicDB.js"></script>
-        <script src="../static/js/summary_table.js"></script>
+    <script>
+        var geojson = {{ geojson| safe}}
+// console.log(geojson)
+    </script>
+    <script type="text/javascript" src="../static/js/maplogicDB.js"></script>
 
-        <script src="https://d3js.org/d3.v5.min.js"></script>
+   
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
+    <script src="../static/js/summary_table.js"></script>
+    <script src="../static/js/plots.js"></script>
 
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 
-
-
-
-
-
-
-
-        <div class="row">
-            <div class="col-md-2">
-                <aside class="filters" style="margin-top: 100px">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Filter search</div>
-                        <div class="panel-body">
-                            <form>
-                                <div class="form-group">
-                                    <ul class="list-group" id="filters">
-                                        <li class="filter list-group-item">
-                                            <label for="month">Enter Crime Type</label>
-                                            <select id="selDataset1" onchange="optionChanged1(this.value)"></select>
-                                        </li>
-                                        <li class="filter list-group-item">
-                                            <label for="month">Select Month</label>
-                                            <select id="selDataset2" onchange="optionChanged2(this.value)"></select>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </form>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
                         </div>
                     </div>
-                </aside>
-            </div>
-            <div class="col-md-9">
-                <div id="plot1"></div>
+                </footer>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-9">
-                <div id="plot2"></div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-10">
-                <div id="table-area" class="">
-                    <table id="ufo-table" class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th class="table-head">Year</th>
-                                <th class="table-head">Month</th>
-                                <th class="table-head">Crime Type</th>
-                                <th class="table-head">Crime Description</th>
-                                <th class="table-head">Reported Crime Count</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-    <script src="../static/js/plots.js"></script>
-</body>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+      
+       
+      
+      
+    </body>
 </html>

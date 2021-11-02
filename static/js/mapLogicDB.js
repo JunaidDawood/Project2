@@ -28,7 +28,7 @@
    //geojson=('http://127.0.0.1:5504/getGeojasonData')
    // data = response.json();
      
-//console.log(geojson)
+console.log(geojson)
  //}
 
   //console.log(response.features);
@@ -135,6 +135,7 @@ var overlayMaps = {
 };
 
 // Create a new map
+
 myMap = L.map("map", {
   center: [
     //37.09, -95.71
