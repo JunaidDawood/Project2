@@ -40,12 +40,16 @@ Link to data:
 JSON link: https://data.cityofchicago.org/resource/ijzp-q8t2.json 
 GeoJSON link: https://data.cityofchicago.org/resource/ijzp-q8t2.geojson 
 
-Responsibilities: 
-ETL: Ratika Chauhan
-Front-End HTML: Seong-Min Kim, Ratna Jadhav
-GoeMap: Arnaz Alavi
-Line Chart and Bar Chart: Seong-Min Kim
-Stacked Chart: Junaid Dawood
+### Responsibilities: 
+- ETL: Ratika Chauhan
+- Front-End HTML: Seong-Min Kim, Ratna Jadhav
+- GoeMap: Arnaz Alavi
+- Line Chart and Bar Chart: Seong-Min Kim
+- Stacked Chart: Junaid Dawood
+
+### Next Steps
+![image](https://user-images.githubusercontent.com/85905358/139997455-7e4e2afd-7fd3-4a21-95bb-d5097125a1e2.png)
+
 
 
 
