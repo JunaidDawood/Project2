@@ -48,7 +48,12 @@ GeoJSON link: https://data.cityofchicago.org/resource/ijzp-q8t2.geojson
 - Stacked Chart: Junaid Dawood
 
 ### Next Steps
-![image](https://user-images.githubusercontent.com/85905358/139997455-7e4e2afd-7fd3-4a21-95bb-d5097125a1e2.png)
+- Use a cloud-shared database
+- Deploy our code into Heroku Cloud
+- Optimize our data retrieval process to include more records
+- Provide prompts on dashboard to encourage user to utilize the visuals
+  - Ex: Are you interested in moving to Lakeview East? Click on the map to view the crime rate in that neighborhood. 
+
 
 
 
