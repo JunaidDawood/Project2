@@ -29,3 +29,4 @@ In order to create an interactive visual to display the data we found, we will b
     * Create flask applications for each visual
     * Combine all flask applications to consolidate all visuals
 
+![image](https://user-images.githubusercontent.com/85905358/139989730-bc31254d-3e51-4233-b1d1-af7bb6fbe540.png)
