@@ -1,7 +1,14 @@
 # Project-2-Crime-Incidents-in-Chicago
 Meet the team: Ratna Jadhav, Arnaz Alavi, Ratika Chauhan, Seong-Min Kim, Junaid Dawood 
+![image](https://user-images.githubusercontent.com/85905358/139990734-44eef98f-2058-4ee9-a87c-851efb2ab58c.png)
 
-Introduction: Our group found interesting data on Kaggle about Crime Incidents in Chicago. We researched other formats for the data (JSON, GeoJSON, CSV).
+### Introduction
+As residents of Chicago, we found it fitting to create an interactive dashboard to visualize Crime Data in our city. We wanted to provide a place for anybody to be able to click around and easily get information about crime rates in Chicago![image](https://user-images.githubusercontent.com/85905358/139990135-989b967b-0838-4f13-a8ae-9461721082d5.png)
+
+![image](https://user-images.githubusercontent.com/85905358/139989730-bc31254d-3e51-4233-b1d1-af7bb6fbe540.png)
+
+![image](https://user-images.githubusercontent.com/85905358/139990541-b41fcef5-ab5a-44d8-9297-63314d350c4a.png)
+
 
 Timeline of Activities: 
 October 19: Determined dataset and initial project management duties. 
@@ -29,4 +36,4 @@ In order to create an interactive visual to display the data we found, we will b
     * Create flask applications for each visual
     * Combine all flask applications to consolidate all visuals
 
-![image](https://user-images.githubusercontent.com/85905358/139989730-bc31254d-3e51-4233-b1d1-af7bb6fbe540.png)
+
