@@ -8,18 +8,19 @@ Meet the team: Ratna Jadhav, Arnaz Alavi, Ratika Chauhan, Seong-Min Kim, Junaid 
 As residents of Chicago, we found it fitting to create an interactive dashboard to visualize Crime Data in our city. 
 We wanted to provide a place for anybody to be able to click around and easily get information about crime rates in Chicago
 
-### Coding Approch
-   ![image](https://user-images.githubusercontent.com/85905358/139992248-68caf1f2-9c27-4263-a499-f6877987323c.png)
+### Coding Approach
+   
 As part of our coding approach, we started off by finding an open-source dataset that can be used to develop our full stack application
 
 1. We extracted the dataset from Chicago Police Department CLEAR system using Web API Calls and processed the same through ETL Process
 2. We then loaded the final datasets to MongoDB using Panda PyMongo
 3. We used Flask Framework on local server to extract and filter data from MongoDB to create the charts.
 4. HTML and Bootstrap CSS provides a Dashboard template and the visualization for the dashboards are constructed in JS using d3 and plotly leaflet
+![image](https://user-images.githubusercontent.com/85905358/139994382-e60fbda4-f447-4a27-aadd-8d8c46caae5b.png)
 
 
 ### Data Wrangling
-   ![image](https://user-images.githubusercontent.com/85905358/139992888-fbf0103c-cf55-403c-ade3-b557c200fbcc.png)
+ 
 For the process of converting the raw data into more usable format we first went through the API documentation provided by the CLEAR  system (Citizen Law Enforcement Analysis and Reporting)
 1. We thoroughly analyzed the data set and  selected the right parameters needed for the API call . We also had to set up paging to retrieve the results in batches  to make sure we extracted the complete data set for 2020.
 2. We then used Pandas library to clean and transform our dataset. We also created addional summary dictionaries with pre calculations that were used to create  some of the charts in the dashboard directly for faster response .
