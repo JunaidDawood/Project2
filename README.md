@@ -27,9 +27,7 @@ For the process of converting the raw data into more usable format we first went
 3. We then loaded the final and cleaned datasets into a Mongodb with multiple collections 
 4. Our Flask App was used to retrieves the data from MongoDB . We also set up queries in the Flask App to further filter the data based on user selection and to retrieve only the subset of data from Mongo DB for the charts.
 5. We used Javascript to calls the flask endpoints to get the data for visualization 
-
-
-
+![image](https://user-images.githubusercontent.com/85905358/139995013-3a62b687-7f84-492e-9e92-1e5f8dd3c649.png)
 
 
 Timeline of Activities: 
