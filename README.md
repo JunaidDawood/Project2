@@ -5,8 +5,8 @@
 Meet the team: Ratna Jadhav, Arnaz Alavi, Ratika Chauhan, Seong-Min Kim, Junaid Dawood 
 
 ### Introduction
-As residents of Chicago, we found it fitting to create an interactive dashboard to visualize Crime Data in our city. We wanted to provide a place for anybody to be able to click around and easily get information about crime rates in Chicago
-![image](https://user-images.githubusercontent.com/85905358/139990135-989b967b-0838-4f13-a8ae-9461721082d5.png)
+As residents of Chicago, we found it fitting to create an interactive dashboard to visualize Crime Data in our city. 
+We wanted to provide a place for anybody to be able to click around and easily get information about crime rates in Chicago
 
 ![image](https://user-images.githubusercontent.com/85905358/139991535-fc4c6280-fed2-4ff4-b70f-30194e0329f3.png)
 
