@@ -38,14 +38,7 @@ Oct 24-Nov : Hold regular working sessions to complete visuals.
 
 Link to data:
 JSON link: https://data.cityofchicago.org/resource/ijzp-q8t2.json 
-GeoJSON link: https://data.cityofchicago.org/resource/ijzp-q8t2.geojson 
-
-### Responsibilities: 
-- ETL: Ratika Chauhan
-- Front-End HTML: Seong-Min Kim, Ratna Jadhav
-- GoeMap: Arnaz Alavi
-- Line Chart and Bar Chart: Seong-Min Kim
-- Stacked Chart: Junaid Dawood
+GeoJSON link: https://data.cityofchicago.org/resource/ijzp-q8t2.geojson
 
 ### Next Steps
 - Use a cloud-shared database
